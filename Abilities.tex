@@ -53,85 +53,100 @@
 \newcounter{heavyload}
 \newcounter{money}
 \newcounter{casterlevel}
+\newcounter{classlevel}
+\newcounter{bombcount}
 
-\newcommand{\charname}{NAME}
-\newcommand{\charrace}{RACE}
-\newcommand{\charclass}{CLASS LVL}
-\newcommand{\charalignment}{F}
+\setcounter{classlevel}{8}
+
+\newcommand{\charname}{Koraevin}
+\newcommand{\charrace}{Elf}
+\newcommand{\charclass}{Alchemist \theclasslevel}
+\newcommand{\charalignment}{-}
 \newcommand{\charsex}{Male}
 \newcommand{\charsize}{Medium}
 \setcounter{sizemod}{0}
-\newcommand{\chartype}{Humanoid (SUBTYPE)}
-\newcommand{\charheight}{10'2``}
-\newcommand{\charweight}{15.42kg/38lb}
-\newcommand{\charhair}{Black}
-\newcommand{\chareyes}{Red}
-\setcounter{age}{5}
+\newcommand{\chartype}{Humanoid}
+\newcommand{\charheight}{??'?``}
+\newcommand{\charweight}{??kg/??lb}
+\newcommand{\charhair}{?}
+\newcommand{\chareyes}{Silver}
+\setcounter{age}{80}
 
-\setcounter{xp}{0}
-\setcounter{ecl}{1}
+\setcounter{xp}{56150}
+\setcounter{ecl}{8}
 
-\setcounter{totalhp}{21}
-\setcounter{currenthp}{21}
-\newcommand{\speed}{15', 3sq (medium load)}
+\setcounter{totalhp}{67}
+\setcounter{currenthp}{67}
+\newcommand{\speed}{30', 6sq}
 
-\setcounter{str}{5} % -4
-\setcounter{dex}{12} % 2
-\setcounter{con}{14} % 2
-\setcounter{int}{14} % 5
-\setcounter{wis}{8} % -2
-\setcounter{cha}{20} % 17
+\setcounter{str}{10} % 0
+\setcounter{dex}{17} % 3
+\setcounter{con}{12} % 1
+\setcounter{int}{22} % 6
+\setcounter{wis}{11} % 0
+\setcounter{cha}{10} % 0
 
+\setcounter{intmod}{\value{int}/2 - 5}
+\setcounter{initmisc}{2}  % trait reactionary
 
 \setcounter{acnatural}{0}
-\setcounter{acarmour}{2}
+\setcounter{acarmour}{6}
+\setcounter{acmisc}{1}  % dodge bonus
 \setcounter{acmaxdex}{6} %maximum dexterity modifier armour allows. Use a high number for none
 
-\setcounter{basefort}{0}
-\setcounter{baseref}{0}
+\setcounter{basefort}{6}
+\setcounter{baseref}{6}
 \setcounter{basewill}{2}
-\setcounter{resistancesave}{0}
-\setcounter{bab}{1}
+\setcounter{resistancesave}{1} % cloak of resistance
+\setcounter{bab}{6}
 \setcounter{spellresistance}{0}
 
 \setcounter{cmdmisc}{\value{acdeflect}}
 
 \newcommand{\feats}{
- Combat Reflexes\\
+ 1st: point blank shot (+1 attack, +1 damage, up to 30ft)\\
+ 3rd: precise shot\\
+ 5th: toughness\\
+ 7th: dodge\\
+ Bonus: Brew potion, throw anything
 }
 
 \newcommand{\traits}{
-Extremely Fashionable \\
-Patient Optimist (+2 to diplomacy to change attitude of unfriendly or hostile, may retry once) \\
+Reactionary \\  % +2 to init misc
+Suspicious \\  % +1 to sense motive and sense motive is class skill
 }
+
+\setcounter{bombcount}{\value{classlevel}+\value{intmod}}
+
 \newcommand{\specialabilities}{
-Low-light vision \\
-1/day dancing lights \\
-1/day ghost sound \\
-1/day prestigitiation \\
-1/day speak with animals \\
-1/day reroll natural 1 on 1d20 \\
-8/day Summon Monster I \\
-Fused Eidolon
-Fused Link
+    \thebombcount/day bomb (4d6 fire) \\
+    Poison use \\
+    Swift poisoning (swift action to apply) \\
+    Mutagen (1 at a time, pg28)
+    Low-light vision (x2 as far as humans in dim light) \\
+    --- \\
+    +2 spellcraft to id magic items \\
+    +2 caster level to overcome spell resistance \\
 }
 
 \newcommand{\conditionalmods}{
-+2 Vs Enchantment\\
++6 Vs Poison\\
 }
 \newcommand{\languages}{
-Common, Kelish, Gnome, Varision \\
+Common, Elven, \\  % base elf
+Celestial, Draconic, Sylvan, 6 \\  % from elf list
+7, 8, 9, 10, 11, 12, 13, 14 \\ % extra due to linguistics
 }
 \setcounter{lightload}{16}
 \setcounter{medload}{33}
 \setcounter{heavyload}{\value{lightload} + \value{medload}}
 
-\setcounter{money}{0}
+\setcounter{money}{1000}
 
 \newcommand{\conditionalspellmods}{
 }
 
-\setcounter{casterlevel}{2}
+\setcounter{casterlevel}{3}
 
 \newcommand{\spellsknown}{
 \begin{compactenum}
@@ -141,10 +156,11 @@ Common, Kelish, Gnome, Varision \\
 }
 
 \newcommand{\domains}{
-None
+    Discovery: explosive bomb, precise bomb, smoke bomb, stink bomb
 }
 \newcommand{\notes}{
-0/4 Prestige
+    Homeland: Kyonin \\
+    Pets: 2x lizards (Clementine, Daegon) \\
 }
 \newcommand{\people}{
 }

@@ -12,4 +12,18 @@
 % \attacks{+1 Longbow, RS/DA/PBS}{normal}{110', P}{+13/+13/+8}{19-20/x3}{1d8+12}
 %
 
-\attacks{Forgot to bring a weapon}{normal}{Unarmed, nonlethal}{+1}{20/x2}{1d3}
+\newcounter{meleeattack}
+\newcounter{rangedattack}
+
+\setcounter{rangedattack}{\value{bab}+\value{dexmod}+\value{sizemod}}
+\setcounter{meleeattack}{\value{bab}+\value{strmod}+\value{sizemod}}
+
+\newcounter{longbow}
+\setcounter{longbow}{\value{rangedattack}+1}
+\newcounter{longsword}
+\setcounter{longsword}{\value{meleeattack}+1}
+
+%\attacks{Forgot to bring a weapon}{normal}{Unarmed, nonlethal}{+1}{20/x2}{1d3}
+%\attacks{Bomb (reflex save DC )}{normal}{???}{\thelongbow1}{x3}{1d8+1}
+\attacks{+1 Longbow (darkwood)}{normal}{???}{\thelongbow}{x3}{1d8+1}
+\attacks{Longsword (masterwork)}{normal}{mithril}{\thelongsword}{19-20/x2}{1d8}
